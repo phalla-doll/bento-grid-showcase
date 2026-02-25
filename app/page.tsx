@@ -39,7 +39,26 @@ export default function Page() {
       </header>
 
       {/* Main Content */}
-      <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1800px] mx-auto">
+      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1800px] mx-auto">
+        {/* Hero Section */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-tight">
+            Design that inspires. <br className="hidden md:block" />
+            <span className="text-zinc-500">Built for the future.</span>
+          </h1>
+          <p className="text-lg text-zinc-400 mb-8 max-w-xl mx-auto">
+            Explore our curated collection of beautiful, functional, and innovative design patterns from top creators around the world.
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-zinc-200 transition-colors">
+              Start exploring
+            </button>
+            <button className="bg-zinc-900 text-white px-6 py-3 rounded-full font-medium border border-white/10 hover:bg-zinc-800 transition-colors">
+              View documentation
+            </button>
+          </div>
+        </div>
+
         {/* Masonry Grid */}
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
           
