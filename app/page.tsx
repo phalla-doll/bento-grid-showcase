@@ -2,7 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
+function ParallaxImage({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
+  return (
+    <div ref={ref} className="absolute inset-0 overflow-hidden">
+      <motion.div style={{ y, height: "130%", top: "-15%" }} className="absolute inset-0 w-full">
+        <Image src={src} alt={alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+      </motion.div>
+    </div>
+  );
+}
 
 function GridItem({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -90,7 +108,7 @@ export default function Page() {
 
           {/* Item 2: Image */}
           <GridItem className="h-[500px]">
-            <Image src="https://picsum.photos/seed/bento1/800/1000" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento1/800/1000" alt="Grid item" />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
           </GridItem>
 
@@ -110,7 +128,7 @@ export default function Page() {
 
           {/* Item 4: Image */}
           <GridItem className="h-[600px]">
-            <Image src="https://picsum.photos/seed/bento2/800/1200" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento2/800/1200" alt="Grid item" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
             <div className="absolute bottom-6 left-6 right-6">
                <h3 className="text-2xl font-serif mb-2">A Present Force</h3>
@@ -130,7 +148,7 @@ export default function Page() {
 
           {/* Item 6: Image */}
           <GridItem className="h-[300px]">
-            <Image src="https://picsum.photos/seed/bento3/800/600" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento3/800/600" alt="Grid item" />
           </GridItem>
 
           {/* Item 7: Dark UI Card */}
@@ -155,7 +173,7 @@ export default function Page() {
 
           {/* Item 8: Image */}
           <GridItem className="h-[400px]">
-            <Image src="https://picsum.photos/seed/bento4/800/800" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento4/800/800" alt="Grid item" />
           </GridItem>
 
           {/* Item 9: High Contrast Typography */}
@@ -166,7 +184,7 @@ export default function Page() {
 
           {/* Item 10: Image */}
           <GridItem className="h-[500px]">
-            <Image src="https://picsum.photos/seed/bento5/800/1000" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento5/800/1000" alt="Grid item" />
           </GridItem>
 
           {/* Item 11: Tech UI */}
@@ -182,7 +200,7 @@ export default function Page() {
 
           {/* Item 12: Image */}
           <GridItem className="h-[300px]">
-            <Image src="https://picsum.photos/seed/bento6/800/600" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento6/800/600" alt="Grid item" />
           </GridItem>
 
           {/* Item 13: Minimalist UI */}
@@ -201,7 +219,7 @@ export default function Page() {
 
           {/* Item 14: Image */}
           <GridItem className="h-[550px]">
-            <Image src="https://picsum.photos/seed/bento7/800/1100" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento7/800/1100" alt="Grid item" />
           </GridItem>
 
           {/* Item 15: Clean Typography */}
@@ -227,7 +245,7 @@ export default function Page() {
 
           {/* Item 17: Image */}
           <GridItem className="h-[450px]">
-            <Image src="https://picsum.photos/seed/bento8/800/900" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento8/800/900" alt="Grid item" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
             <div className="absolute bottom-6 left-6 right-6">
                <div className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">New Release</div>
@@ -275,7 +293,7 @@ export default function Page() {
 
           {/* Item 20: Image */}
           <GridItem className="h-[400px]">
-            <Image src="https://picsum.photos/seed/bento9/800/800" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <ParallaxImage src="https://picsum.photos/seed/bento9/800/800" alt="Grid item" />
           </GridItem>
         </div>
 
