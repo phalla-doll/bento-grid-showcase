@@ -193,6 +193,73 @@ export default function Page() {
              <p className="text-sm text-zinc-600 mb-auto leading-relaxed">Meet the modern platform that accelerates business onboarding, automates manual work and grows revenue.</p>
              <button className="bg-black text-white text-xs font-medium px-5 py-2.5 rounded-full self-start group-hover:scale-105 transition-transform">Get started</button>
           </div>
+
+          {/* Item 16: Gradient Stats */}
+          <div className="break-inside-avoid rounded-2xl overflow-hidden relative bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white p-8 h-[400px] flex flex-col justify-between group cursor-pointer">
+             <div className="flex justify-between items-center">
+                <div className="w-10 h-10 bg-white/20 rounded-xl backdrop-blur-md flex items-center justify-center">
+                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">Live</span>
+             </div>
+             <div>
+                <div className="text-6xl font-black tracking-tighter mb-2">99.9%</div>
+                <p className="text-sm font-medium text-white/80">Uptime SLA guaranteed across all global regions.</p>
+             </div>
+          </div>
+
+          {/* Item 17: Image */}
+          <div className="break-inside-avoid rounded-2xl overflow-hidden relative h-[450px] group cursor-pointer">
+            <Image src="https://picsum.photos/seed/bento8/800/900" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+            <div className="absolute bottom-6 left-6 right-6">
+               <div className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">New Release</div>
+               <h3 className="text-2xl font-medium text-white">The creative workflow, reimagined.</h3>
+            </div>
+          </div>
+
+          {/* Item 18: Feature List */}
+          <div className="break-inside-avoid rounded-2xl overflow-hidden relative bg-[#1a1a1a] border border-white/10 text-white p-8 h-[500px] flex flex-col group cursor-pointer hover:border-white/20 transition-colors">
+             <h2 className="text-2xl font-medium mb-8 tracking-tight">Everything you need to scale.</h2>
+             <div className="space-y-6 flex-1">
+                {[
+                  { title: "Real-time sync", desc: "Changes propagate instantly across all devices." },
+                  { title: "End-to-end encryption", desc: "Your data is secure from end to end." },
+                  { title: "Advanced analytics", desc: "Deep insights into your user behavior." },
+                  { title: "Custom domains", desc: "Bring your own brand to the platform." }
+                ].map((feature, i) => (
+                  <div key={i} className="flex gap-4">
+                     <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                     </div>
+                     <div>
+                        <div className="text-sm font-medium mb-1">{feature.title}</div>
+                        <div className="text-xs text-zinc-500">{feature.desc}</div>
+                     </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+
+          {/* Item 19: Quote */}
+          <div className="break-inside-avoid rounded-2xl overflow-hidden relative bg-[#f4f4f0] text-black p-10 h-[350px] flex flex-col justify-center group cursor-pointer">
+             <svg className="w-10 h-10 text-black/20 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+             <p className="text-2xl font-serif leading-snug mb-6">"The attention to detail is simply unmatched. It has completely transformed how our team approaches design."</p>
+             <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-zinc-300 overflow-hidden relative">
+                   <Image src="https://picsum.photos/seed/avatar1/100/100" alt="Avatar" fill className="object-cover" unoptimized />
+                </div>
+                <div>
+                   <div className="text-sm font-bold">Sarah Jenkins</div>
+                   <div className="text-xs text-zinc-500">Design Director, Studio</div>
+                </div>
+             </div>
+          </div>
+
+          {/* Item 20: Image */}
+          <div className="break-inside-avoid rounded-2xl overflow-hidden relative h-[400px] group cursor-pointer">
+            <Image src="https://picsum.photos/seed/bento9/800/800" alt="Grid item" fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+          </div>
         </div>
 
         {/* Logos Section */}
